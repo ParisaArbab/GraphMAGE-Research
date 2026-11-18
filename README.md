@@ -1,5 +1,24 @@
 # GraphMAGE Research | Automated Pilot Agent
 
+## Latest results: 5-seed Chicago multi-horizon experiment (Nov 18, 2026)
+
+**[Read full research report](results/multihorizon-chicago/REPORT.md)** ·
+**[All 90 runs](results/multihorizon-chicago/all_runs.csv)** ·
+**[Per-horizon results](results/multihorizon-chicago/horizon_summary.csv)** ·
+**[Paired seed analysis](results/multihorizon-chicago/paired_seed_bootstrap.csv)** ·
+**[Protocol](docs/MULTIHORIZON_PROTOCOL.md)** ·
+**[Original GitHub Actions artifact](https://github.com/ParisaArbab/GraphMAGE-Research/actions/runs/44362840798/artifacts/14455742475)**
+
+The study compared all six methods at **1, 3, and 7 weeks**, using **five matched random seeds**, 48 traps, and real Chicago surveillance records. Both verification and the 90-run training job succeeded.
+
+**Validation ranking:** `adaptive_temporal` (adaptive graph + temporal GRU) ranked first, but its across-horizon gains over the proxy baseline were **only +0.0006 ROC-AUC and +0.0051 PR-AUC**. It improved both metrics in just **one** of the three horizons. Therefore, **the prespecified promotion gate was not met**. The result is **inconclusive**. The strongest exploratory signal was for the **one-week horizon**.
+
+![Validation ROC-AUC and PR-AUC across 1, 3 and 7 weeks](results/multihorizon-chicago/validation_horizon_comparison.svg)
+
+The 2024-2025 test years were already examined in the previous pilot and cannot be treated as untouched confirmation. This is still a **GraphMAGE-inspired proxy**, not the published model, and lacks weather and land-use features. No improvement over the original paper has been demonstrated.
+
+---
+
 An **automated small experiment agent** for the 2025 paper [Forecasting West Nile virus with deep graph encoders](https://arxiv.org/abs/2509.22657).
 
 It tests six variants: a lightweight GraphMAGE-inspired baseline, learned adaptive graph, temporal GRU, focal loss, adaptive+temporal, and all three. It runs matched seeds and train/validation/test years, chooses the leading model using **validation only**, and writes run-level metrics, a ranked summary, and a plot.
