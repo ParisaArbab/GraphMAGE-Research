@@ -1,5 +1,37 @@
 # GraphMAGE Research | Automated Pilot Agent
 
+## Latest: 2026 holdout, weather/history/graph diagnostic
+
+**[Research findings](reports/climate-history-graph-2026-findings.md)** ·
+**[Frozen 2026 comparison](results/climate2026/holdout_2026.csv)** ·
+**[Validation results for all 162 candidate fits](results/climate2026/validation_search_runs.csv)** ·
+**[Model selections](results/climate2026/decision.json)** ·
+**[Protocol](docs/CLIMATE_2026_PROTOCOL.md)** ·
+**[Full Actions artifact with charts](https://github.com/ParisaArbab/GraphMAGE-Research/actions/runs/44366420813/artifacts/14456772761)**
+
+**Completed:** 207 model fits, 48 Chicago traps, 3 random seeds, and
+1-, 3-, and 7-week prediction horizons. Training: 2007–2023; validation:
+2024–2025; **new, previously unexamined 2026 test**.
+
+The validation-selected methods used:
+- **1 week:** 8 weeks of history + 50/50 adaptive edges + archived citywide weather.
+- **3 weeks:** 8 weeks of history + fixed graph + archived citywide weather.
+- **7 weeks:** 8 weeks of history + fixed graph, **without** weather.
+
+These models improved **2026 ranking AUC/PR-AUC** over the fixed-temporal
+baseline, most noticeably at 1 and 3 weeks. **None passed the predefined
+validation promotion gate**, and short-horizon probability calibration
+(Brier score) was worse. The result remains **hypothesis-generating**.
+
+![2026 frozen selected methods vs temporal baseline](results/climate2026/holdout_2026_comparison.svg)
+
+**Scientific caveat:** The implementation remains a *GraphMAGE-inspired proxy*
+with one **citywide** weather grid cell and no land-cover features, not a
+replication of the authors' Illinois model. A 2026 test-year gain cannot
+establish reproducible improvements across future years or regions.
+
+---
+
 ## Latest results: 5-seed Chicago multi-horizon experiment (Nov 18, 2026)
 
 **[Read full research report](results/multihorizon-chicago/REPORT.md)** ·
