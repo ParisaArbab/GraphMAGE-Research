@@ -123,19 +123,37 @@ def load_chicago(path, max_traps=48, through_year=2025):
         df['_date'] = pd.to_datetime(yr_data.astype('Int64').astype(str) + '-W' +
                         wk_data.astype('Int64').astype(str).str.zfill(2) + '-1',
                         format='%G-W%V-%u', errors='coerce')
-    df['_lat'] = pd.to_numeric(df[lat], errors='coerce')
-    df['_lon'] = pd.to_numeric(df[lon], errors='coerce')
+    raw_lat = pd.to_numeric(df[lat], errors='coerce')
+    raw_lon = pd.to_numeric(df[lon], errors='coerce')
+    # City of Chicago jqe8-8r6s has mislabeled coordinate headers in its
+    # published export: LATITUDE often contains longitude (-87.x), and
+    # LONGITUDE often contains latitude (41.x). Correct those rows while also
+    # accepting conventional lat/lon columns in older or user-supplied CSVs.
+    swapped = raw_lat.between(-89, -86) & raw_lon.between(40, 43)
+    conventional = raw_lat.between(40, 43) & raw_lon.between(-89, -86)
+    df['_lat'] = np.where(swapped, raw_lon, raw_lat)
+    df['_lon'] = np.where(swapped, raw_lat, raw_lon)
+    print(f'Chicago coordinates: {int(swapped.sum())} swapped, '
+          f'{int(conventional.sum())} conventional; '
+          f'{len(df) - int((swapped | conventional).sum())} invalid/missing',
+          flush=True)
     df['_trap'] = df[trap].astype(str).str.strip()
     positive = {'positive', 'pos', '1', 'true', 'yes', 'wnv positive'}
     negative = {'negative', 'neg', '0', 'false', 'no', 'wnv negative'}
     label_text = df[result].astype(str).str.strip().str.lower()
     df['_y'] = np.where(label_text.isin(positive), 1.,
                         np.where(label_text.isin(negative), 0., np.nan))
+    counts = {'rows': len(df), 'valid_dates': int(df['_date'].notna().sum()),
+              'valid_labels': int(df['_y'].notna().sum()),
+              'valid_chicago_coords': int((swapped | conventional).sum())}
+    print(f'Chicago ingestion: {counts}', flush=True)
     df = df.dropna(subset=['_date', '_lat', '_lon', '_y'])
     df = df[(df['_date'].dt.year <= through_year) &
             (df['_lat'].between(40, 43)) & (df['_lon'].between(-89, -86))]
     if df.empty:
-        raise ValueError('No valid labeled trap records after cleaning. Check schema/result values.')
+        raise ValueError(f'No valid labeled trap records after cleaning. ' 
+                         f'Ingestion counts: {counts}. ' 
+                         f'Example result values: {label_text.value_counts(dropna=False).head(6).to_dict()}')
     # Choose trap population using ONLY years earlier than validation/test.
     all_years = sorted(df['_date'].dt.year.unique().tolist())
     if len(all_years) < 5:
