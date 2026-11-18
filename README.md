@@ -6,6 +6,22 @@ It tests six variants: a lightweight GraphMAGE-inspired baseline, learned adapti
 
 **Research scope warning:** The model is a **proxy inspired by the paper's graph embedding recurrence**, not the authors' model trained on their paper's original Illinois dataset. A successful experiment here establishes engineering feasibility, not publication-level improvement or a direct numerical comparison against the original paper.
 
+## Explore the published pilot
+
+**[Automated report](results/synthetic/REPORT.md)** · **[Method comparison (CSV)](results/synthetic/summary.csv)** · **[Individual runs (CSV)](results/synthetic/runs.csv)** · **[Model-selection decision](results/synthetic/decision.json)** · **[Experiment metadata](results/synthetic/metadata.json)**
+
+![Synthetic baseline and ablations](results/synthetic/comparison.svg)
+
+This repository contains the **synthetic screening results only**. The best validation-ranked method was `all_three`, but its test ROC-AUC was about **0.708**, essentially the same as the proxy baseline's **0.708**. The screening outcome is **inconclusive**. These numbers do not establish an improvement over the original GraphMAGE paper.
+
+### Run the agent on GitHub Actions
+
+Open **[Actions → GraphMAGE pilot tests and experiments](../../actions/workflows/graphmage-pilot.yml)**, choose **Run workflow**, and select your dataset, number of seeds, training epochs, and forecast horizon. After the workflow finishes, download the `graphmage-pilot-results` artifact to inspect the new report, metrics, and chart.
+
+Every push also runs the project's five unit tests. GitHub Actions runs are **not** automatic publication-quality validation; real data and a faithful original-paper baseline are still needed.
+
+---
+
 ## Run a local synthetic smoke test
 
 ```bash
