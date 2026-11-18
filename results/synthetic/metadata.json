@@ -1,0 +1,35 @@
+{
+  "source": "synthetic (programmatically generated; not clinical evidence)",
+  "horizon": 3,
+  "history": 4,
+  "n_traps": 48,
+  "seeds": 2,
+  "split": {
+    "train": [
+      2018,
+      2019,
+      2020
+    ],
+    "validation": [
+      2021
+    ],
+    "test": [
+      2022,
+      2023
+    ]
+  },
+  "n_windows": 114,
+  "examples_train": 2316,
+  "examples_validation": 770,
+  "examples_test": 1522,
+  "variants": [
+    "baseline",
+    "adaptive",
+    "temporal",
+    "focal",
+    "adaptive_temporal",
+    "all_three"
+  ],
+  "dataset_citation": "synthetic data",
+  "paper": "https://arxiv.org/abs/2509.22657"
+}
