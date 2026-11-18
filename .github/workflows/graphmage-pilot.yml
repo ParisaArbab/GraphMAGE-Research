@@ -116,3 +116,37 @@ jobs:
           name: graphmage-multihorizon-results
           path: results/multihorizon-chicago/
           if-no-files-found: warn
+
+  climate_2026:
+    if: github.event_name == 'push' && contains(github.event.head_commit.message, '[run-climate2026]')
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run prespecified climate/history/graph diagnostic with new 2026 test
+        env:
+          MPLBACKEND: Agg
+        run: |
+          mkdir -p results/climate2026
+          set -o pipefail
+          python scripts/diagnose_climate2026.py \
+            --seeds 3 \
+            --epochs 20 \
+            --max-traps 48 \
+            --horizons 1 3 7 \
+            --histories 2 4 8 \
+            --out results/climate2026 2>&1 | tee results/climate2026/run.log
+      - name: Upload reproducible results and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: graphmage-climate2026-results
+          path: results/climate2026/
+          if-no-files-found: warn
