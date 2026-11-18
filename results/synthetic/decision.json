@@ -1,0 +1,11 @@
+{
+  "status": "INCONCLUSIVE: no validated improvement above the pilot screening threshold",
+  "validation_selected": "all_three",
+  "promotion_gate": {
+    "min_seeds": 3,
+    "val_auc_gain": 0.01,
+    "val_pr_auc_gain": 0.01
+  },
+  "delta_val_auc": 0.0012696540880503537,
+  "delta_val_pr_auc": 0.011244014603131292
+}
