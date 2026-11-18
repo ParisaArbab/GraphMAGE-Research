@@ -68,3 +68,31 @@ def test_city_ingestion_and_unobserved_mask(tmp_path):
     x,y,years,_ = as_windows(data,horizon=3,history=4)
     tr,va,te,split = year_split(years)
     assert len(tr)>0 and len(va)>0 and len(te)>0
+
+def test_chicago_public_export_swapped_coordinates(tmp_path):
+    """Chicago jqe8-8r6s publishes longitude under LATITUDE and vice versa."""
+    from agent import load_chicago
+    rows = []
+    for year in range(2018, 2024):
+        for week in range(12):
+            for j in range(8):
+                rows.append({
+                    'TRAP': f'T{j}',
+                    'LATITUDE': -87.8 + j * 0.01,  # longitude in wrong column
+                    'LONGITUDE': 41.7 + j * 0.01,  # latitude in wrong column
+                    'TEST DATE': str(pd.Timestamp(year=year, month=6, day=2) +
+                                     pd.Timedelta(weeks=week)),
+                    'RESULT': 'positive' if (j + week) % 8 == 0 else 'negative',
+                })
+    # Accept a mix of swapped city-style and correctly labeled coordinates.
+    rows[0]['LATITUDE'], rows[0]['LONGITUDE'] = (
+        rows[0]['LONGITUDE'], rows[0]['LATITUDE'])
+    p = tmp_path / 'city_export.csv'
+    pd.DataFrame(rows).to_csv(p, index=False)
+    data = load_chicago(p, max_traps=8, through_year=2023)
+    assert np.all((data.coords[:, 0] > 40) & (data.coords[:, 0] < 43))
+    assert np.all((data.coords[:, 1] > -89) & (data.coords[:, 1] < -86))
+    assert np.isfinite(data.y).sum() > 0
+    x, y, years, _ = as_windows(data, horizon=3, history=4)
+    tr, va, te, _ = year_split(years)
+    assert all(len(part) > 0 for part in (tr, va, te))
