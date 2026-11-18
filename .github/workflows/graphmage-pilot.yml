@@ -45,7 +45,7 @@ jobs:
         run: python -m pytest -q tests
 
   pilot:
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[run-chicago-pilot]'))
     needs: verify
     runs-on: ubuntu-latest
     timeout-minutes: 45
@@ -61,13 +61,15 @@ jobs:
         env:
           MPLBACKEND: Agg
         run: |
+          mkdir -p results/ci-pilot
+          set -o pipefail
           python agent.py \
-            --data "${{ inputs.dataset }}" \
+            --data "${{ github.event_name == 'workflow_dispatch' && inputs.dataset || 'chicago' }}" \
             --max-traps 48 \
-            --horizon "${{ inputs.horizon }}" \
-            --epochs "${{ inputs.epochs }}" \
-            --seeds "${{ inputs.seeds }}" \
-            --out "results/ci-pilot"
+            --horizon "${{ github.event_name == 'workflow_dispatch' && inputs.horizon || '3' }}" \
+            --epochs "${{ github.event_name == 'workflow_dispatch' && inputs.epochs || '20' }}" \
+            --seeds "${{ github.event_name == 'workflow_dispatch' && inputs.seeds || '3' }}" \
+            --out "results/ci-pilot" 2>&1 | tee results/ci-pilot/run.log
       - name: Upload experiment report and metrics
         if: always()
         uses: actions/upload-artifact@v4
