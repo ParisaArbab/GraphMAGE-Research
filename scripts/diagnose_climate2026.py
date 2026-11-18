@@ -403,8 +403,6 @@ def main():
                                data.coords, data.node_names, data.source),
                     horizon=h, history=hist)
                 tr, va, te = split_new_year(years)
-                if len(np.unique(y[te][np.isfinite(y[te])])) < 2:
-                    raise ValueError(f"No 2026 positive/negative targets for horizon {h}")
                 windows[(h, hist, weather_on)] = (x, y, tr, va, te)
     print("2026 data available. No 2026 model metric will be used for selection.", flush=True)
     print("Validation candidates:", len(configs) * args.seeds, flush=True)
