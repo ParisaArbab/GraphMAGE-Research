@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="510" viewBox="0 0 1100 510">
+<rect width="100%" height="100%" fill="white"/>
+<text x="550" y="35" fill="#142533" font-family="sans-serif" font-weight="bold" font-size="23" text-anchor="middle">Chicago validation, GraphMAGE proxy</text>
+<text x="550" y="58" fill="#48505f" font-family="sans-serif" font-size="15" text-anchor="middle">Means over 5 matched random seeds. Horizons 1, 3 and 7 weeks.</text>
+<text x="295" y="82" fill="#142533" font-family="sans-serif" font-size="18" text-anchor="middle">Validation ROC-AUC</text>
+<line x1="130" y1="390.0" x2="510" y2="390.0" stroke="#e5eaf0"/>
+<text x="122" y="394.0" font-size="12" text-anchor="end" fill="#5c6470" font-family="sans-serif">0.790</text>
+<line x1="130" y1="316.2" x2="510" y2="316.2" stroke="#e5eaf0"/>
+<text x="122" y="320.2" font-size="12" text-anchor="end" fill="#5c6470" font-family="sans-serif">0.800</text>
+<line x1="130" y1="242.5" x2="510" y2="242.5" stroke="#e5eaf0"/>
+<text x="122" y="246.5" font-size="12" text-anchor="end" fill="#5c6470" font-family="sans-serif">0.810</text>
+<line x1="130" y1="168.8" x2="510" y2="168.8" stroke="#e5eaf0"/>
+<text x="122" y="172.8" font-size="12" text-anchor="end" fill="#5c6470" font-family="sans-serif">0.820</text>
+<line x1="130" y1="95.0" x2="510" y2="95.0" stroke="#e5eaf0"/>
+<text x="122" y="99.0" font-size="12" text-anchor="end" fill="#5c6470" font-family="sans-serif">0.830</text>
+<line x1="130" y1="95" x2="130" y2="390" stroke="#75808e"/>
+<line x1="130" y1="390" x2="510" y2="390" stroke="#75808e"/>
+<text x="135" y="412" font-size="13" text-anchor="middle" fill="#354150" font-family="sans-serif">1</text>
+<text x="315" y="412" font-size="13" text-anchor="middle" fill="#354150" font-family="sans-serif">3</text>
+<text x="495" y="412" font-size="13" text-anchor="middle" fill="#354150" font-family="sans-serif">7</text>
+<text x="318" y="435" font-size="14" text-anchor="middle" fill="#354150" font-family="sans-serif">Forecast horizon (weeks)</text>
+<polyline points="135,278.17 315,181.14 495,296.82" fill="none" stroke="#293d80" stroke-width="3" opacity=".94"/>
+<circle cx="135" cy="278.17" r="4.5" fill="#293d80" stroke="white" stroke-width="1"/>
+<circle cx="315" cy="181.14" r="4.5" fill="#293d80" stroke="white" stroke-width="1"/>
+<circle cx="495" cy="296.82" r="4.5" fill="#293d80" stroke="white" stroke-width="1"/>
+<polyline points="135,278.48 315,190.92 495,310.24" fill="none" stroke="#2e8b57" stroke-width="2" opacity=".94"/>
+<circle cx="135" cy="278.48" r="3.5" fill="#2e8b57" stroke="white" stroke-width="1"/>
+<circle cx="315" cy="190.92" r="3.5" fill="#2e8b57" stroke="white" stroke-width="1"/>
+<circle cx="495" cy="310.24" r="3.5" fill="#2e8b57" stroke="white" stroke-width="1"/>
+<polyline points="135,268.90 315,207.44 495,312.97" fill="none" stroke="#da7b22" stroke-width="2" opacity=".94"/>
+<circle cx="135" cy="268.90" r="3.5" fill="#da7b22" stroke="white" stroke-width="1"/>
+<circle cx="315" cy="207.44" r="3.5" fill="#da7b22" stroke="white" stroke-width="1"/>
+<circle cx="495" cy="312.97" r="3.5" fill="#da7b22" stroke="white" stroke-width="1"/>
+<polyline points="135,285.81 315,188.39 495,307.62" fill="none" stroke="#ae547c" stroke-width="2" opacity=".94"/>
+<circle cx="135" cy="285.81" r="3.5" fill="#ae547c" stroke="white" stroke-width="1"/>
+<circle cx="315" cy="188.39" r="3.5" fill="#ae547c" stroke="white" stroke-width="1"/>
+<circle cx="495" cy="307.62" r="3.5" fill="#ae547c" stroke="white" stroke-width="1"/>
+<polyline points="135,229.94 315,191.33 495,320.49" fill="none" stroke="#1577a8" stroke-width="2" opacity=".94"/>
+<circle cx="135" cy="229.94" r="3.5" fill="#1577a8" stroke="white" stroke-width="1"/>
+<circle cx="315" cy="191.33" r="3.5" fill="#1577a8" stroke="white" stroke-width="1"/>
+<circle cx="495" cy="320.49" r="3.5" fill="#1577a8" stroke="white" stroke-width="1"/>
+<polyline points="135,222.68 315,194.55 495,337.44" fill="none" stroke="#8c6bb1" stroke-width="2" opacity=".94"/>
+<circle cx="135" cy="222.68" r="3.5" fill="#8c6bb1" stroke="white" stroke-width="1"/>
+<circle cx="315" cy="194.55" r="3.5" fill="#8c6bb1" stroke="white" stroke-width="1"/>
+<circle cx="495" cy="337.44" r="3.5" fill="#8c6bb1" stroke="white" stroke-width="1"/>
+<text x="835" y="82" fill="#142533" font-family="sans-serif" font-size="18" text-anchor="middle">Validation PR-AUC</text>
+<line x1="670" y1="390.0" x2="1050" y2="390.0" stroke="#e5eaf0"/>
+<text x="662" y="394.0" font-size="12" text-anchor="end" fill="#5c6470" font-family="sans-serif">0.460</text>
+<line x1="670" y1="324.4" x2="1050" y2="324.4" stroke="#e5eaf0"/>
+<text x="662" y="328.4" font-size="12" text-anchor="end" fill="#5c6470" font-family="sans-serif">0.470</text>
+<line x1="670" y1="258.9" x2="1050" y2="258.9" stroke="#e5eaf0"/>
+<text x="662" y="262.9" font-size="12" text-anchor="end" fill="#5c6470" font-family="sans-serif">0.480</text>
+<line x1="670" y1="193.3" x2="1050" y2="193.3" stroke="#e5eaf0"/>
+<text x="662" y="197.3" font-size="12" text-anchor="end" fill="#5c6470" font-family="sans-serif">0.490</text>
+<line x1="670" y1="127.8" x2="1050" y2="127.8" stroke="#e5eaf0"/>
+<text x="662" y="131.8" font-size="12" text-anchor="end" fill="#5c6470" font-family="sans-serif">0.500</text>
+<line x1="670" y1="95" x2="670" y2="390" stroke="#75808e"/>
+<line x1="670" y1="390" x2="1050" y2="390" stroke="#75808e"/>
+<text x="675" y="412" font-size="13" text-anchor="middle" fill="#354150" font-family="sans-serif">1</text>
+<text x="855" y="412" font-size="13" text-anchor="middle" fill="#354150" font-family="sans-serif">3</text>
+<text x="1035" y="412" font-size="13" text-anchor="middle" fill="#354150" font-family="sans-serif">7</text>
+<text x="858" y="435" font-size="14" text-anchor="middle" fill="#354150" font-family="sans-serif">Forecast horizon (weeks)</text>
+<polyline points="675,310.79 855,284.72 1035,287.96" fill="none" stroke="#293d80" stroke-width="3" opacity=".94"/>
+<circle cx="675" cy="310.79" r="4.5" fill="#293d80" stroke="white" stroke-width="1"/>
+<circle cx="855" cy="284.72" r="4.5" fill="#293d80" stroke="white" stroke-width="1"/>
+<circle cx="1035" cy="287.96" r="4.5" fill="#293d80" stroke="white" stroke-width="1"/>
+<polyline points="675,314.89 855,280.90 1035,292.20" fill="none" stroke="#2e8b57" stroke-width="2" opacity=".94"/>
+<circle cx="675" cy="314.89" r="3.5" fill="#2e8b57" stroke="white" stroke-width="1"/>
+<circle cx="855" cy="280.90" r="3.5" fill="#2e8b57" stroke="white" stroke-width="1"/>
+<circle cx="1035" cy="292.20" r="3.5" fill="#2e8b57" stroke="white" stroke-width="1"/>
+<polyline points="675,279.17 855,291.31 1035,277.71" fill="none" stroke="#da7b22" stroke-width="2" opacity=".94"/>
+<circle cx="675" cy="279.17" r="3.5" fill="#da7b22" stroke="white" stroke-width="1"/>
+<circle cx="855" cy="291.31" r="3.5" fill="#da7b22" stroke="white" stroke-width="1"/>
+<circle cx="1035" cy="277.71" r="3.5" fill="#da7b22" stroke="white" stroke-width="1"/>
+<polyline points="675,318.50 855,289.79 1035,290.96" fill="none" stroke="#ae547c" stroke-width="2" opacity=".94"/>
+<circle cx="675" cy="318.50" r="3.5" fill="#ae547c" stroke="white" stroke-width="1"/>
+<circle cx="855" cy="289.79" r="3.5" fill="#ae547c" stroke="white" stroke-width="1"/>
+<circle cx="1035" cy="290.96" r="3.5" fill="#ae547c" stroke="white" stroke-width="1"/>
+<polyline points="675,165.62 855,294.88 1035,322.04" fill="none" stroke="#1577a8" stroke-width="2" opacity=".94"/>
+<circle cx="675" cy="165.62" r="3.5" fill="#1577a8" stroke="white" stroke-width="1"/>
+<circle cx="855" cy="294.88" r="3.5" fill="#1577a8" stroke="white" stroke-width="1"/>
+<circle cx="1035" cy="322.04" r="3.5" fill="#1577a8" stroke="white" stroke-width="1"/>
+<polyline points="675,197.10 855,281.51 1035,317.18" fill="none" stroke="#8c6bb1" stroke-width="2" opacity=".94"/>
+<circle cx="675" cy="197.10" r="3.5" fill="#8c6bb1" stroke="white" stroke-width="1"/>
+<circle cx="855" cy="281.51" r="3.5" fill="#8c6bb1" stroke="white" stroke-width="1"/>
+<circle cx="1035" cy="317.18" r="3.5" fill="#8c6bb1" stroke="white" stroke-width="1"/>
+<line x1="87" y1="467" x2="117" y2="467" stroke="#293d80" stroke-width="3"/>
+<text x="126" y="472" font-size="14" font-family="sans-serif" fill="#233444">baseline</text>
+<line x1="432" y1="467" x2="462" y2="467" stroke="#2e8b57" stroke-width="3"/>
+<text x="471" y="472" font-size="14" font-family="sans-serif" fill="#233444">adaptive</text>
+<line x1="777" y1="467" x2="807" y2="467" stroke="#da7b22" stroke-width="3"/>
+<text x="816" y="472" font-size="14" font-family="sans-serif" fill="#233444">temporal</text>
+<line x1="87" y1="491" x2="117" y2="491" stroke="#ae547c" stroke-width="3"/>
+<text x="126" y="496" font-size="14" font-family="sans-serif" fill="#233444">focal</text>
+<line x1="432" y1="491" x2="462" y2="491" stroke="#1577a8" stroke-width="3"/>
+<text x="471" y="496" font-size="14" font-family="sans-serif" fill="#233444">adaptive_temporal</text>
+<line x1="777" y1="491" x2="807" y2="491" stroke="#8c6bb1" stroke-width="3"/>
+<text x="816" y="496" font-size="14" font-family="sans-serif" fill="#233444">all_three</text>
+</svg>
