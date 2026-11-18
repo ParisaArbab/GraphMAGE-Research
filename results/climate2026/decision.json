@@ -1,0 +1,29 @@
+[
+  {
+    "horizon": 1,
+    "chosen_config": "hist8_edge0p5_weather1",
+    "baseline_config": "hist4_edge0p0_weather0",
+    "val_auc_gain": 0.008905243579237387,
+    "val_pr_auc_gain": 0.024974600821979054,
+    "passes_validation_gate": false,
+    "test_year": 2026
+  },
+  {
+    "horizon": 3,
+    "chosen_config": "hist8_edge0p0_weather1",
+    "baseline_config": "hist4_edge0p0_weather0",
+    "val_auc_gain": 0.009280053046747394,
+    "val_pr_auc_gain": 0.030964125218000405,
+    "passes_validation_gate": false,
+    "test_year": 2026
+  },
+  {
+    "horizon": 7,
+    "chosen_config": "hist8_edge0p0_weather0",
+    "baseline_config": "hist4_edge0p0_weather0",
+    "val_auc_gain": 0.001705221878674834,
+    "val_pr_auc_gain": 0.0023032900511811283,
+    "passes_validation_gate": false,
+    "test_year": 2026
+  }
+]
